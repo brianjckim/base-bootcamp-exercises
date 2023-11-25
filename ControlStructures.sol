@@ -2,7 +2,6 @@
 pragma solidity ^0.8.17;
 
 contract ControlStructures {
-
     function fizzBuzz(uint _number) external pure returns (string memory) {
         if (_number % 3 == 0 && _number % 5 == 0) {
             return "FizzBuzz";
@@ -16,7 +15,6 @@ contract ControlStructures {
     }
 
     error AfterHours(uint _time);
-
     function doNotDisturb(uint _time) external pure returns (string memory) {
         assert(_time < 2400);
         if (_time > 2200 || _time < 800) {
