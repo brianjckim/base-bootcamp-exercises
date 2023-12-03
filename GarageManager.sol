@@ -6,12 +6,12 @@ contract GarageManager {
         string make;
         string model;
         string color;
-        uint16 numberOfDoors;
+        uint numberOfDoors;
     }
 
     mapping(address => Car[]) public garage;
 
-    function addCar(string memory _make, string memory _model, string memory _color, uint16 _numberOfDoors) public {
+    function addCar(string memory _make, string memory _model, string memory _color, uint _numberOfDoors) public {
         garage[msg.sender].push(Car(
             _make,
             _model,
@@ -29,7 +29,7 @@ contract GarageManager {
     }
 
     error BadCarIndex(uint);
-    function updateCar(uint _index, string memory _make, string memory _model, string memory _color, uint16 _numberOfDoors) public {
+    function updateCar(uint _index, string memory _make, string memory _model, string memory _color, uint _numberOfDoors) public {
         if (_index >= garage[msg.sender].length) {
             revert BadCarIndex(_index);
         }
